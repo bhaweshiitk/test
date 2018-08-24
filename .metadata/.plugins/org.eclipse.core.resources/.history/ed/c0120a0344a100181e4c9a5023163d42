@@ -1,0 +1,27 @@
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.connection.MyConnection;
+
+public class LoginDAO {
+
+	public boolean checklogin(String username, String password) {
+		boolean success =false;
+		String INSERT_EMPLOYEE = "SELECT * from login where username=? and password=?";
+		try {
+			PreparedStatement ps = MyConnection.getMyConnection().prepareStatement(INSERT_EMPLOYEE);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				success  = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return success;
+	}
+}

@@ -1,0 +1,17 @@
+
+public class Date {
+
+	// TODO Auto-generated method stub
+	private int date;
+	private int month;
+	private int year;
+    
+	public void display() {
+		
+		System.out.println(date+" "+month+" "+year);
+	}
+	
+		
+	
+
+}
